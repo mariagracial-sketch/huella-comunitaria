@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huella Comunitaria</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f1f7ed;
+            color: #263b2b;
+        }
+
+        header {
+            background-color: #276749;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #1f513a;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1000px;
+            margin: 25px auto;
+        }
+
+        .bienvenida {
+            text-align: center;
+            padding: 25px;
+        }
+
+        h2 {
+            color: #276749;
+        }
+
+        .convocatorias {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .tarjeta {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px #00000015;
+        }
+
+        .tarjeta button,
+        form button {
+            background-color: #276749;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .tarjeta button:hover,
+        form button:hover {
+            background-color: #1f513a;
+        }
+
+        form {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        input, select {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 18px;
+            border: 1px solid #b8c9b8;
+            border-radius: 6px;
+        }
+
+        footer {
+            background: #1f513a;
+            color: white;
+            text-align: center;
+            padding: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Huella Comunitaria</h1>
+        <p>Pequeñas acciones, grandes cambios para nuestra comunidad.</p>
+    </header>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#actividades">Convocatorias</a>
+        <a href="#registro">Registro</a>
+    </nav>
+
+    <main>
+        <section class="bienvenida" id="inicio">
+            <h2>¡Bienvenido a Huella Comunitaria!</h2>
+            <p>
+                Participa en actividades de reforestación, limpieza
+                y cuidado del medio ambiente.
+            </p>
+        </section>
+
+        <section id="actividades">
+            <h2>Próximas convocatorias</h2>
+
+            <div class="convocatorias">
+                <article class="tarjeta">
+                    <h3>Jornada de reforestación</h3>
+                    <p>Ayúdanos a plantar árboles en nuestra comunidad.</p>
+                    <p><strong>Fecha:</strong> Por confirmar</p>
+                    <p><strong>Lugar:</strong> Área comunitaria</p>
+                    <p><strong>Cupos:</strong> 20 voluntarios</p>
+                    <button onclick="seleccionarActividad('Reforestación')">
+                        Inscribirme
+                    </button>
+                </article>
+
+                <article class="tarjeta">
+                    <h3>Limpieza comunitaria</h3>
+                    <p>Participa en la limpieza de espacios públicos.</p>
+                    <p><strong>Fecha:</strong> Por confirmar</p>
+                    <p><strong>Lugar:</strong> Parque comunitario</p>
+                    <p><strong>Cupos:</strong> 15 voluntarios</p>
+                    <button onclick="seleccionarActividad('Limpieza comunitaria')">
+                        Inscribirme
+                    </button>
+                </article>
+
+                <article class="tarjeta">
+                    <h3>Recolección de reciclables</h3>
+                    <p>Ayuda a separar y recolectar materiales reciclables.</p>
+                    <p><strong>Fecha:</strong> Por confirmar</p>
+                    <p><strong>Lugar:</strong> Plantel escolar</p>
+                    <p><strong>Cupos:</strong> 10 voluntarios</p>
+                    <button onclick="seleccionarActividad('Reciclaje')">
+                        Inscribirme
+                    </button>
+                </article>
+            </div>
+        </section>
+
+        <section id="registro">
+            <h2>Registro de voluntarios</h2>
+
+            <form id="formulario">
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" required>
+
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" required>
+
+                <label for="tipo">Tipo de participante:</label>
+                <select id="tipo" required>
+                    <option value="">Selecciona una opción</option>
+                    <option>Alumno</option>
+                    <option>Tutor</option>
+                    <option>Vecino</option>
+                </select>
+
+                <label for="actividad">Actividad elegida:</label>
+                <select id="actividad" required>
+                    <option value="">Selecciona una actividad</option>
+                    <option>Reforestación</option>
+                    <option>Limpieza comunitaria</option>
+                    <option>Reciclaje</option>
+                </select>
+
+                <button type="submit">Registrar voluntario</button>
+            </form>
+
+            <p id="mensaje" role="status"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>CBTa No. 197 | Proyecto Huella Comunitaria</p>
+        <p>Cuidemos nuestro entorno, construyamos un futuro mejor.</p>
+    </footer>
+
+    <script>
+        function seleccionarActividad(nombreActividad) {
+            document.getElementById("actividad").value = nombreActividad;
+            document.getElementById("registro").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        document.getElementById("formulario").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById("nombre").value;
+            const actividad = document.getElementById("actividad").value;
+
+            document.getElementById("mensaje").textContent =
+                "¡Gracias, " + nombre +
+                "! Tu formulario de prueba para " + actividad +
+                " fue completado correctamente.";
+
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
